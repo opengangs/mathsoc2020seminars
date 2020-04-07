@@ -1,0 +1,274 @@
+\input{setup} % sets everything up.
+
+\begin{document}
+\include{titlepage}
+
+\begin{frame}[label=toc]{Seminar Overview}
+    \tableofcontents
+\end{frame}
+
+\section[Part V: ODEs]{Part V: Ordinary Differential Equations}
+\begin{frame}{Introduction to ODEs}
+    ODEs are functions defined by the relation between themselves and their derivatives. \pause
+    As such, it is common for their derivatives to in some way resemble the original function. \pause
+    The function types that allow this most easily are sine/cosine functions and exponentials. \pause
+    
+    \begin{exampleblock}{Examples}
+        \begin{itemize}
+            \item \(y' + y = 0.\) \pause
+            \item \(\displaystyle \frac{dy}{dx} + y = 0\). \pause
+            \item \(\displaystyle y'' + y' + y = 0\).
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Introduction to ODEs}
+    \begin{block}{Types of ODEs}
+    \begin{enumerate}
+        \item \textbf{First order ODE}: highest derivative order is 1. Three forms:
+        
+        \begin{itemize}
+            \uncover<1->{
+            \item \only<1>{\textit{separable}}
+            \only<2>{\textcolor{red}{\textit{separable}}}
+            \only<3->{\textit{separable}}
+            }
+            
+            \uncover<1->{
+            \item \only<1-2>{\textit{linear}}
+            
+            \only<3>{\textcolor{red}{\textit{linear}}}
+            
+            \only<4->{\textit{linear}}
+            }
+            
+            \uncover<1->{
+            \item \only<1-3>{\textit{substitution}}
+            
+            \only<4>{\textcolor{red}{\textit{substitution}}}
+            
+            \only<5->{\textit{substitution}}
+            }
+        \end{itemize}
+        
+        \item \textbf{Second order ODE}: highest derivative order is 2. Two forms:
+        \begin{itemize}
+            \uncover<1->{
+            \item \only<1-4>{\textit{homogeneous}}
+            
+            \only<5>{\textcolor{red}{\textit{homogeneous}}}
+            
+            \only<6->{\textit{homogeneous}}
+            }
+            \uncover<1->{
+            \item \only<1-5>{\textit{non-homogeneous}}
+            
+            \only<6>{\textcolor{red}{\textit{non-homogeneous}}}
+            }
+        \end{itemize}
+    \end{enumerate}
+    \end{block}
+    
+    \uncover<2->{
+    \begin{exampleblock}{Form of ODE}
+        \only<2-2>{\[ y' = P(x)Q(y).\]}
+        \only<3-3>{\[ y' + P(x)y = Q(x).\]}
+        \only<4-4>{\[P(x)y' = Q(x) + G(y).\]}
+        \only<5-5>{\[a y'' + b y' + c y = 0.\]}
+        \only<6-6>{\begin{align*}ay'' + by' + cy' &= f(x), \\ y'' + P(x)y' + Q(x)y &= g(x).\end{align*}}
+    \end{exampleblock}}
+\end{frame}
+
+\begin{frame}{First order ODE I: Separable ODE}
+    \begin{block}{Method of solution} \pause
+    \begin{enumerate}
+        \item Separate variables so both sides contain one variable. \pause
+        
+        \item Integrate both sides with respect to said variable. \pause
+        
+        \item Rearrange for \(y\) as a function of \(x\) (or any equivalent form). \pause
+    \end{enumerate}
+    \end{block}
+    
+    \begin{exampleblock}{Example: (Paper)}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{First order ODE II: Linear ODE}
+    \begin{block}{Method of solution}
+    \[\frac{dy}{dx} + P(x) y = Q(x).\]
+    \pause
+    \begin{enumerate}
+        \item Identify expressions for \(P(x)\) and \(Q(x)\). \pause
+        
+        \item Create the \textbf{integrating factor} given by \[ R(x) = e^{\int P(x)\,dx}\] \pause
+        
+        \item Solution is of the form \[ y(x) = \frac{1}{R(x)} \int R(x) Q(x)\,dx.\]
+    \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{First order ODE II: Linear ODE}
+    \begin{exampleblock}{Example: (Paper)}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{First order ODE III: Substitution ODE}
+    \begin{block}{Method of solution}
+    \[ P(x) \frac{dy}{dx} = Q(x) + G(y).\]
+    \pause
+    \begin{enumerate}
+        \item Substitution is given in the question (use \(v = f(x, y)\)). \pause
+        
+        \item ODE becomes \[ \frac{dy}{dx} = \frac{Q(x)}{P(x)} + \frac{G(y)}{P(x)}.\] \pause
+        
+        \item Manipulate \(v\) to get expressions similar to \(Q(x)/P(x)\) and \(G(y)/P(x)\). \pause
+        
+        \item Result becomes either a separable or linear ODE.
+    \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{First order ODE III: Substitution ODE}
+    \begin{exampleblock}{Example: (Paper)}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Second order ODE I: Homogeneous}
+    \begin{block}{Method of solution}
+    \[ a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = 0.\]
+    \pause
+    \begin{enumerate}
+        \item Obtain a \textbf{characteristic polynomial}: \(\displaystyle a\lambda^2 + b\lambda + c = 0.\) \pause
+        
+        \item Solve the quadratic for values of \(\lambda\). \pause
+        
+        \begin{itemize}
+            \item If the values of \(\lambda\) are \textbf{distinct}, the solution is of the form \(y(x) = c_1 \cdot e^{\lambda_1 x} + c_2 \cdot e^{\lambda_2 x}\). \pause
+            
+            \item If the value of \(\lambda\) is \textbf{repeated}, the solution is of the form \(\displaystyle y(x) = c_1 \cdot e^{\lambda x} + c_2 \cdot xe^{\lambda x}\). \pause
+            
+            \item If the values of \(\lambda\) are \textbf{complex} (let \(\lambda = \alpha + i\beta\)), then the solution is of the form \(\displaystyle y(x) = e^{\alpha x}\left[c_1\cos(\beta x) + c_2\sin(\beta x)\right]\).
+        \end{itemize}
+    \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Second order ODE I: Homogeneous}
+    \begin{exampleblock}{Example: (paper)}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Second order ODE II: Non-homogeneous (undetermined coefficients)}
+    \begin{block}{Method of solution}
+        \[ a \frac{d^2y}{dx^2} + b \frac{dy}{dx} + cy = f(x).\]
+        \pause
+        \begin{enumerate}
+            \item Solve the homogeneous differential equation to find the form of the \textbf{homogeneous solution} \(y_H(x)\). \pause
+            
+            \item Guess a suitable form for \(y_p(x)\). \pause
+            \begin{itemize}
+                \item If \(f(x)\) has an \textit{exponential term}, include it in the assumed form. For example: if \(f(x) = 3e^{3x}\), then guess \(Ae^{3x}\). \pause
+                
+                \item If \(f(x)\) has a \textit{polynomial term}, include \textbf{all lower degree terms} of the polynomial. \pause
+                
+                \item If \(f(x)\) has a \textit{sinusoidal}, include a sum of \textbf{both} \(\sin\) and \(\cos\) with the same frequency but different amplitudes.
+            \end{itemize}
+            
+            \seti
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Second order ODE II: Non-homogeneous (undetermined coefficients)}
+    \begin{block}{Method of solution}
+        \[ a \frac{d^2y}{dx^2} + b \frac{dy}{dx} + cy = f(x).\]
+        \begin{enumerate}
+        \conti
+            
+            \item Use your particular solution guess and substitute it into the differential equation and equate it to \(f(x)\). \pause
+            
+            \item Find common terms between each side and obtain a system of equations in terms of the undetermined coefficients. \pause
+            
+            \item Solution is the sum of its homogeneous and particular solution: \(\displaystyle y(x) = y_H(x) + y_p(x)\).
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Second order ODE II: Non-homogeneous (undetermined coefficients)}
+    \begin{exampleblock}{Example: (paper)}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Second order ODE III: Non-homogeneous (variation of parameters)}
+    \begin{block}{Method of solution}
+        \[ a \frac{d^2y}{dx^2} + b \frac{dy}{dx} + cy = f(x).\]
+        \pause
+        
+        \begin{enumerate}
+            \item Solve the homogeneous differential equation to find the form of the \textbf{homogeneous solution} \(y_H(x)\). \pause
+            \begin{itemize}
+                \item The homogeneous solution will be of the form \[ y_H(x) = c_1 \cdot y_1(x) + c_2 \cdot y_2(x).\] \pause
+            \end{itemize}
+            
+            \item Evaluate the \textbf{Wronskian}, which is of the form \[ W(x) = \begin{vmatrix}y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x)\end{vmatrix}.\]
+            \seti
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Second order ODE III: Non-homogeneous (variation of parameters)}
+    \begin{block}{Method of solution}
+        \[ a \frac{d^2y}{dx^2} + b \frac{dy}{dx} + cy = f(x).\]
+        \pause
+        
+        \begin{enumerate}
+            \conti
+            \item The \textbf{particular solution} is then of the form \[ y_p(x) = -y_1(x) \int \frac{y_2(x) f(x)}{W(x)}\;dx + y_2(x) \int \frac{y_1(x) f(x)}{W(x)}\;dx.\] \pause
+            
+            \item The solution is the sum of its homogeneous and particular solution: \(\displaystyle y(x) = y_H(x) + y_p(x)\).
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Second order ODE III: Non-homogeneous (variation of parameters)}
+    \begin{exampleblock}{Example: (paper)}
+        Use the method of variation of parameters to find the general solution of the differential equation \[ \frac{d^2y}{dx^2} - 2\frac{dy}{dx} + y = \frac{e^x}{x^3}.\]
+    \end{exampleblock}
+\end{frame}
+
+\section{Part VI: Laplace transforms}
+\section{Part VII: Fourier series}
+\begin{frame}{Introduction to Fourier series}
+    The \textbf{Fourier transform} describes the process of \textcolor{red}{approximating a \textbf{periodic function}} using a series of \textcolor{red}{trigonometric functions}. \pause Fourier transforms are defined by the following equations. \pause
+    \begin{block}{} \pause
+        \begin{align*}
+            \uncover<4->{f(x) &= a_0 + \sum_{n = 1}^\infty a_n \cos\left(\frac{n\pi x}{L}\right) + \sum_{n = 1}^\infty b_n \sin \left(\frac{n \pi x}{L}\right),} \\
+            \uncover<5->{a_0 &= \frac{1}{2L} \int_{-L}^L f(x)\;dx.} \\
+            \uncover<6->{a_n &= \frac{1}{L} \int_{-L}^L f(x) \cos \left(\frac{n\pi x}{L}\right)\;dx.} \\
+            \uncover<7->{b_n &= \frac{1}{L} \int_{-L}^L f(x) \sin \left(\frac{n\pi x}{L}\right)\;dx.}
+        \end{align*}
+    \end{block}
+    \uncover<8->{\(n\) represents the \textbf{number of iterations} for the series, and \(L\) represents the \textbf{half period} of the function.}
+\end{frame}
+
+\begin{frame}{Even and Odd integrals}
+    The \textbf{Fourier transformation process} evidently involves the evaluation of \textit{integrals} \(-\) the process can be made simpler by using the arithmetic properties of even and odd integrals.
+    
+    \begin{block}{Properties of even and odd integrals}
+        \begin{align*}
+            \int_{-L}^L f(x) \;dx =
+            \begin{cases}
+                \displaystyle 2 \int_0^L f(x)\;dx & \text{if } f(x) \text{ is even} \\
+                0 & \text{if } f(x) \text{ is odd}
+            \end{cases}
+        \end{align*}
+        
+        \begin{itemize}
+            \item If a function \(f\) is \textbf{even}, then \(f(x) = f(-x)\).
+            \item If a function \(f\) is \textbf{odd}, then \(f(x) = -f(-x)\).
+        \end{itemize}
+    \end{block}
+\end{frame}
+\section[Part VIII: PDEs]{Part VIII: Partial Differential Equations}
+\end{document}
